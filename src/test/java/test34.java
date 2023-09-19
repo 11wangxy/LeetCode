@@ -1,4 +1,4 @@
-import Example.algorithm.LeetCode35;
+import Algorithm.LeetCode.LeetCode35;
 
 import java.util.Arrays;
 
