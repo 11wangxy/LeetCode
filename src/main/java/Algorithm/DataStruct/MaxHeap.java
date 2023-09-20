@@ -18,6 +18,7 @@ public class MaxHeap {
         }
     }
 
+    //下潜
     private void down(int parent) {
         int left=parent*2+1;
         int right=left+1;
@@ -34,6 +35,7 @@ public class MaxHeap {
         }
     }
 
+    //交换节点
     private void  swap(int i,int j){
         int t=array[i];
         array[i]=array[j];

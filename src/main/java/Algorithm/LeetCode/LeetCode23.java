@@ -1,6 +1,7 @@
 package Algorithm.LeetCode;
 
 import Algorithm.DataStruct.ListNode;
+import Algorithm.DataStruct.MinHeap;
 
 /**
  * @author: Wang Xiaoyi
@@ -50,6 +51,29 @@ public class LeetCode23 {
         }
         if (p2==null){
             p3.next=p1;
+        }
+        return s.next;
+    }
+
+    //使用优先级队列，小顶堆
+    public ListNode mergeKLists1(ListNode[] lists) {
+        MinHeap heap=new MinHeap(lists.length);
+        //1.把链表的头结点加入到小顶堆
+        for (ListNode list : lists) {
+            if (list!=null){
+                heap.offer(list);
+            }
+        }
+        //2.不断从堆顶元素移除最小元素，加入新链表
+        ListNode s=new ListNode(-1,null);
+        ListNode t=s;
+        while (!heap.empty()){
+            ListNode min = heap.poll();
+            t.next=min;
+            t=min;
+            if (min.next!=null){
+                heap.offer(min.next);
+            }
         }
         return s.next;
     }
